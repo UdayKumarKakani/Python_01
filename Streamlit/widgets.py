@@ -10,6 +10,14 @@ age=st.slider("Select your age:",0,100,25)
 
 st.write(f"Your age is {age}.")
 
+options = st.multiselect(
+    "What are your favorite colors?",
+    ["Green", "Yellow", "Red", "Blue"],
+    default=["Yellow", "Red"],
+)
+
+st.write("You selected:", options)
+
 options = ["Python", "Java", "C++", "JavaScript"]
 choice = st.selectbox("Choose your favorite language:", options)
 st.write(f"You selected {choice}.")
