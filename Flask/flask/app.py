@@ -4,16 +4,21 @@ from flask import Flask
  which will be your WSGI (Web Server Gateway Interface) application.
 '''
 ###WSGI Application
-app=Flask(__name__)
+app1=Flask(__name__)
 
-@app.route("/")
+@app1.route("/")
 def welcome():
-    return "Welcome to this best Flask course.This should be an amazing course"
+    return "Welcome to this Flask course."
 
-@app.route("/index")
+@app1.route("/index")
 def index():
     return "Welcome to the index page"
 
 
+@app1.route("/index1")
+def index1():
+    return "Welcome to the index page"
+
+
 if __name__=="__main__":
-    app.run(debug=True)
+    app1.run(debug=True)

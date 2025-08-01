@@ -18,7 +18,7 @@ from flask import Flask,render_template,request,redirect,url_for
 app=Flask(__name__)
 
 @app.route("/")
-def welcome():
+def login():
     return "<html><H1>Welcome to the flask course</H1></html>"
 
 @app.route("/index",methods=['GET'])
