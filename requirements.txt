@@ -16,3 +16,12 @@ scipy
 spacy==3.7.5
 thinc==8.2.5
 together
+python-dotenv
+langchain-together
+langchain_core
+langchain_community
+langchain_openai
+langchain_unstructured
+pypdf
+pinecone-notebooks 
+pinecone-client==3.2.2
