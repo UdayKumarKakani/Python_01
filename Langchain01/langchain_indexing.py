@@ -29,23 +29,23 @@ def split_text(text, chunk_size=1000, chunk_overlap=200):
     return splitter.split_text(text)
 
 # Step 3: Use bge-large embedding model and convert the chunks into embeddings
-# Embedding method using langchain_together (ChatTogether) and BAAI/bge-base-en-v1.5
+# Embedding method using langchain_together (TogetherEmbeddings) and BAAI/bge-base-en-v1.5
 def get_embeddings_with_together(chunks):
     embedder = TogetherEmbeddings(
         model="BAAI/bge-base-en-v1.5",
         api_key=os.getenv("TOGETHER_API_KEY")
     )
     embeddings = []
-    for chunk in chunks:
-        # The embedding API expects a string, so we pass each chunk
-        emb = embedder.embed_documents(chunk)
-        print(f"Processed chunk: {chunk[:50]}...")  # Print first 50 characters of the chunk
-        print(f"Embedding: {emb[:10]}...")  # Print first 10 values of the embedding
-        embeddings.append(emb)
-    # embeddings = embedder.embed_documents(chunks)
-    # for i, (chunk, emb) in enumerate(zip(chunks, embeddings)):
-    #     print(f"Processed chunk {i}: {chunk[:50]}...")
-    #     print(f"Embedding: {emb[:10]}...")
+    # for chunk in chunks:
+    #     # The embedding API expects a string, so we pass each chunk
+    #     emb = embedder.embed_documents(chunk)
+    #     print(f"Processed chunk: {chunk[:50]}...")  # Print first 50 characters of the chunk
+    #     print(f"Embedding: {emb[:10]}...")  # Print first 10 values of the embedding
+    #     embeddings.append(emb)
+    embeddings = embedder.embed_documents(chunks)
+    for i, (chunk, emb) in enumerate(zip(chunks, embeddings)):
+        print(f"Processed chunk {i}: {chunk[:50]}...")
+        print(f"Embedding: {emb[:10]}...")
     return embeddings
 
 
