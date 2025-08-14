@@ -3,6 +3,7 @@ from pypdf import PdfReader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 import pinecone
+from pinecone import Pinecone, ServerlessSpec
 from langchain_together import ChatTogether,TogetherEmbeddings
 
 
@@ -11,6 +12,11 @@ from langchain_together import ChatTogether,TogetherEmbeddings
 import os
 # Set Together API key as environment variable (replace with your actual key)
 os.environ["TOGETHER_API_KEY"] = "tgp_v1_Gdl66OKThh1KsJjEym9JEgDMqFWqd6bXtlZhviYqf34"
+#pcsk_3875g1_PSfiVC6hgEBa7mPwUMFf6dbhmZa68JiueGaf5eSYDwKoyt8JABHRYsirkcLfRnm
+os.environ["PINECONE_API_KEY"] = "pcsk_3875g1_PSfiVC6hgEBa7mPwUMFf6dbhmZa68JiueGaf5eSYDwKoyt8JABHRYsirkcLfRnm"
+
+os.environ["PINECONE_ENVIRONMENT"] = "gcp-starter"  # Replace with your Pinecone environment
+
 
 # Step 1: Read file from filepath and extract text using pypdf
 def read_pdf(filepath):
@@ -36,12 +42,7 @@ def get_embeddings_with_together(chunks):
         api_key=os.getenv("TOGETHER_API_KEY")
     )
     embeddings = []
-    # for chunk in chunks:
-    #     # The embedding API expects a string, so we pass each chunk
-    #     emb = embedder.embed_documents(chunk)
-    #     print(f"Processed chunk: {chunk[:50]}...")  # Print first 50 characters of the chunk
-    #     print(f"Embedding: {emb[:10]}...")  # Print first 10 values of the embedding
-    #     embeddings.append(emb)
+
     embeddings = embedder.embed_documents(chunks)
     for i, (chunk, emb) in enumerate(zip(chunks, embeddings)):
         print(f"Processed chunk {i}: {chunk[:50]}...")
@@ -50,14 +51,27 @@ def get_embeddings_with_together(chunks):
 
 
 
-# Step 4: Store the embeddings into Pinecone DB
-def store_embeddings_pinecone(embeddings, chunks, index_name="pdf-embeddings"):
+# Step 4: Store the embeddings into Pinecone DB/croma db
+def store_embeddings_pinecone(embeddings, chunks, index_name="langchain-embeddings"):
     pinecone_api_key = os.getenv("PINECONE_API_KEY")
     pinecone_env = os.getenv("PINECONE_ENVIRONMENT")
-    pinecone.init(api_key=pinecone_api_key, environment=pinecone_env)
-    if index_name not in pinecone.list_indexes():
-        pinecone.create_index(index_name, dimension=len(embeddings[0]))
-    index = pinecone.Index(index_name)
+    pc = Pinecone(
+        api_key=os.environ.get("PINECONE_API_KEY")
+    )
+    index_name = "langchain-embeddings"
+    # Now do stuff
+    if index_name not in pc.list_indexes().names():
+        pc.create_index(
+            name=index_name,
+            dimension=len(embeddings[0]),
+            metric='cosine',
+            spec=ServerlessSpec(
+                cloud='aws',
+                region='us-east-1'
+            )
+        )
+    
+    index = pc.Index(index_name)
     vectors = [
         (f"chunk-{i}", emb, {"text": chunk})
         for i, (emb, chunk) in enumerate(zip(embeddings, chunks))
@@ -71,4 +85,4 @@ if __name__ == "__main__":
     print(f"Number of chunks created: {len(chunks)}")
     print(f"Chunks: {chunks}")  # Print  chunk
     embeddings = get_embeddings_with_together(chunks)
-    # store_embeddings_pinecone(embeddings, chunks)
+    #store_embeddings_pinecone(embeddings, chunks)

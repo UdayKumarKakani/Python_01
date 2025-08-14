@@ -25,3 +25,4 @@ langchain_unstructured
 pypdf
 pinecone-notebooks 
 pinecone-client==3.2.2
+chromadb
