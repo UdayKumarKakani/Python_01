@@ -27,6 +27,3 @@ pinecone-notebooks
 pinecone-client==3.2.2
 chromadb
 fastapi
-langgraph
-duckduckgo-search
-langgraph-prebuilt==0.6.4

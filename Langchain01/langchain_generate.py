@@ -55,6 +55,8 @@ def generateAnswers(context:str, question :str):
     prompt = PromptTemplate(
         input_variables=["context", "question"],
         template="""You are a helpful assistant. Use the provided context to answer the question as accurately as possible.
+        If the context is empty, missing, or does not contain information relevant to the question, respond with:
+        I’m sorry, I don’t have enough information in my knowledge base to answer that.
 
 
         Context: {context}
