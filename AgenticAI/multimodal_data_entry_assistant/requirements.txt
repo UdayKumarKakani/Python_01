@@ -1,0 +1,16 @@
+# Core
+langgraph>=0.2.0
+groq>=0.9.0
+python-dotenv
+
+# Optional: PDF support
+pymupdf
+
+# Optional: Image format conversion
+Pillow
+
+# Optional: Excel output
+openpyxl
+
+# Optional: dev/type hints
+typing_extensions

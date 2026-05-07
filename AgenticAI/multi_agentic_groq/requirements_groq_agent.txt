@@ -1,0 +1,20 @@
+# Sequential Multi-Agent System — Groq Edition
+# Install with: pip install -r requirements_groq_agent.txt
+
+# LangGraph + LangChain
+langgraph>=0.2.0
+langchain>=0.2.0
+langchain-core>=0.2.0
+langchain-groq>=0.1.9
+
+# Search tool (DuckDuckGo — no API key needed)
+duckduckgo-search>=6.0.0
+
+# HTTP
+requests>=2.31.0
+
+# Streamlit UI
+streamlit>=1.35.0
+
+# Environment variables
+python-dotenv>=1.0.0
