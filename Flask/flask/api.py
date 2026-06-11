@@ -13,7 +13,7 @@ items = [
 
 @app.route('/')
 def home():
-    return "Welcome To The Sample To DO List App"
+    return "Welcome To The Sample Ecommerce App"
 
 ## Get: Retrieve all the items
 

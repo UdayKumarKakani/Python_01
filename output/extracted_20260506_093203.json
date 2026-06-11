@@ -1,0 +1,12 @@
+{
+  "schema": [
+    "filename",
+    "path"
+  ],
+  "records": [
+    {
+      "filename": "sales_data.csv",
+      "path": "/Users/udaykakani/Projects/Courses/Python_01/AgenticAI/multimodal_data_entry_assistant"
+    }
+  ]
+}

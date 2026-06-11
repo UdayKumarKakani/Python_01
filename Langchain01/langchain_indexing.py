@@ -11,7 +11,7 @@ from langchain_together import ChatTogether,TogetherEmbeddings
 # PINECONE_API_KEY, PINECONE_ENVIRONMENT, TOGETHER_API_KEY  
 import os
 # Set Together API key as environment variable (replace with your actual key)
-os.environ["TOGETHER_API_KEY"] = "tgp_v1_Gdl66OKThh1KsJjEym9JEgDMqFWqd6bXtlZhviYqf34"
+os.environ["TOGETHER_API_KEY"] = "tgp_v1_--nKOPx_Rtr2sAiSOtvpafrbcvAjyajARRfAyZ8G_Bo"
 #pcsk_3875g1_PSfiVC6hgEBa7mPwUMFf6dbhmZa68JiueGaf5eSYDwKoyt8JABHRYsirkcLfRnm
 os.environ["PINECONE_API_KEY"] = "pcsk_3875g1_PSfiVC6hgEBa7mPwUMFf6dbhmZa68JiueGaf5eSYDwKoyt8JABHRYsirkcLfRnm"
 
@@ -38,7 +38,7 @@ def split_text(text, chunk_size=1000, chunk_overlap=200):
 # Embedding method using langchain_together (TogetherEmbeddings) and BAAI/bge-base-en-v1.5
 def get_embeddings_with_together(chunks):
     embedder = TogetherEmbeddings(
-        model="BAAI/bge-base-en-v1.5",
+        model="intfloat/multilingual-e5-large-instruct",
         api_key=os.getenv("TOGETHER_API_KEY")
     )
     embeddings = []
@@ -63,7 +63,7 @@ def store_embeddings_pinecone(embeddings, chunks, index_name="langchain-embeddin
     if index_name not in pc.list_indexes().names():
         pc.create_index(
             name=index_name,
-            dimension=len(embeddings[0]),
+            dimension=1024,
             metric='cosine',
             spec=ServerlessSpec(
                 cloud='aws',
@@ -79,10 +79,10 @@ def store_embeddings_pinecone(embeddings, chunks, index_name="langchain-embeddin
     index.upsert(vectors)
 
 if __name__ == "__main__":
-    filepath = r"D:\Python_01\Python_01\Langchain01\Introduction_to_Data_and_Data_Science.pdf"  # Replace with your PDF file path
+    filepath = r"/Users/udaykakani/Projects/Courses/Python_01/Langchain01/Introduction_to_Data_and_Data_Science.pdf"  # Replace with your PDF file path
     text = read_pdf(filepath)
     chunks = split_text(text)
     print(f"Number of chunks created: {len(chunks)}")
     print(f"Chunks: {chunks}")  # Print  chunk
     embeddings = get_embeddings_with_together(chunks)
-    #store_embeddings_pinecone(embeddings, chunks)
+    store_embeddings_pinecone(embeddings, chunks)

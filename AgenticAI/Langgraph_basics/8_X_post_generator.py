@@ -50,7 +50,7 @@ load_dotenv()
 # All use llama-3.3-70b-versatile; mixtral is used for structured eval output.
 
 generator_llm = ChatGroq(model='llama-3.3-70b-versatile')
-evaluator_llm = ChatGroq(model='mixtral-8x7b-32768')    # structured output
+evaluator_llm = ChatGroq(model='llama-3.3-70b-versatile')    # structured output
 optimizer_llm = ChatGroq(model='llama-3.3-70b-versatile')
 
 

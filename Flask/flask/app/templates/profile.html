@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+  <div class="col-md-4 text-center">
+    <div class="profile-card p-4">
+      <img src="{{ url_for('static', filename=user.profile_image_url()) }}" alt="Profile" class="profile-img mb-3">
+      <h3>{{ user.name }}</h3>
+      <p class="text-muted">{{ user.email }}</p>
+      <a href="{{ url_for('main.edit_profile') }}" class="btn btn-outline-primary btn-sm">Edit Profile</a>
+      <a href="{{ url_for('main.delete_account') }}" class="btn btn-danger btn-sm mt-2">Delete Account</a>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="card p-4">
+      <h4>About</h4>
+      <p>{{ user.bio or 'No bio yet. Add a short description in your profile.' }}</p>
+      <hr>
+      <p><strong>Joined on:</strong> {{ user.created_at.strftime('%B %d, %Y') }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

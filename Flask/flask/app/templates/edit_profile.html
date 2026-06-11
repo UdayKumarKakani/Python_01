@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <h2>Edit Profile</h2>
+    <form method="POST" enctype="multipart/form-data" novalidate>
+      {{ form.hidden_tag() }}
+      <div class="mb-3">
+        {{ form.name.label(class_='form-label') }}
+        {{ form.name(class_='form-control') }}
+        {% for error in form.name.errors %}
+          <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div class="mb-3">
+        {{ form.bio.label(class_='form-label') }}
+        {{ form.bio(class_='form-control', rows=5, placeholder='Tell us about yourself') }}
+        {% for error in form.bio.errors %}
+          <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div class="mb-3">
+        {{ form.profile_image.label(class_='form-label') }}
+        {{ form.profile_image(class_='form-control') }}
+        {% for error in form.profile_image.errors %}
+          <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+      {{ form.submit(class_='btn btn-primary') }}
+    </form>
+  </div>
+</div>
+{% endblock %}

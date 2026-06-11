@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center py-5">
+  <h1>Welcome to the User Profile App</h1>
+  <p class="lead">Register, upload your profile image, and manage your bio.</p>
+  {% if current_user.is_authenticated %}
+    <a href="{{ url_for('main.profile') }}" class="btn btn-success">View Your Profile</a>
+  {% else %}
+    <a href="{{ url_for('auth.register') }}" class="btn btn-primary me-2">Register</a>
+    <a href="{{ url_for('auth.login') }}" class="btn btn-outline-primary">Login</a>
+  {% endif %}
+</div>
+{% endblock %}

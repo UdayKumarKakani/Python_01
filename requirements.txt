@@ -30,3 +30,11 @@ fastapi
 langgraph
 duckduckgo-search
 langgraph-prebuilt==0.6.4
+groq
+youtube-transcript-api
+langchain-groq
+langchain-openai
+duckduckgo-search 
+langchain_experimental
+ddgs
+anthropic

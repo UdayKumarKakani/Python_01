@@ -1,0 +1,26 @@
+.profile-card {
+  background: #ffffff;
+  border: 1px solid #e7e7e7;
+  border-radius: 15px;
+}
+
+.profile-img {
+  width: 170px;
+  height: 170px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #0d6efd;
+}
+
+body {
+  background: #f8f9fa;
+}
+
+.card {
+  border-radius: 15px;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}

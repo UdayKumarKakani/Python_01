@@ -8,7 +8,7 @@ from pinecone import Pinecone
 
 # === Load Environment Variables ===
 def load_env():
-    os.environ["TOGETHER_API_KEY"] = "tgp_v1_Gdl66OKThh1KsJjEym9JEgDMqFWqd6bXtlZhviYqf34"
+    os.environ["TOGETHER_API_KEY"] = "tgp_v1_--nKOPx_Rtr2sAiSOtvpafrbcvAjyajARRfAyZ8G_Bo"
     os.environ["PINECONE_API_KEY"] = "pcsk_3875g1_PSfiVC6hgEBa7mPwUMFf6dbhmZa68JiueGaf5eSYDwKoyt8JABHRYsirkcLfRnm"
     os.environ["PINECONE_ENVIRONMENT"] = "gcp-starter"  # Replace with your Pinecone environment
 
@@ -20,7 +20,7 @@ def contextRetriever(index_name: str, query_text: str):
     index = pc.Index(index_name)
 
     embedding = TogetherEmbeddings(
-        model="BAAI/bge-base-en-v1.5",
+        model="intfloat/multilingual-e5-large-instruct",
         api_key=os.environ["TOGETHER_API_KEY"]
     )
 

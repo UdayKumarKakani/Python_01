@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <h2>Create an Account</h2>
+    <form method="POST" novalidate>
+      {{ form.hidden_tag() }}
+      <div class="mb-3">
+        {{ form.name.label(class_='form-label') }}
+        {{ form.name(class_='form-control', placeholder='Enter your name') }}
+        {% for error in form.name.errors %}
+          <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div class="mb-3">
+        {{ form.email.label(class_='form-label') }}
+        {{ form.email(class_='form-control', placeholder='Enter your email') }}
+        {% for error in form.email.errors %}
+          <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div class="mb-3">
+        {{ form.password.label(class_='form-label') }}
+        {{ form.password(class_='form-control', placeholder='Enter a password') }}
+        {% for error in form.password.errors %}
+          <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+      <div class="mb-3">
+        {{ form.confirm_password.label(class_='form-label') }}
+        {{ form.confirm_password(class_='form-control', placeholder='Confirm password') }}
+        {% for error in form.confirm_password.errors %}
+          <div class="text-danger">{{ error }}</div>
+        {% endfor %}
+      </div>
+      {{ form.submit(class_='btn btn-primary') }}
+    </form>
+  </div>
+</div>
+{% endblock %}

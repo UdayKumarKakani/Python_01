@@ -40,7 +40,7 @@ def success(score):
     else:
         res="FAILED"
 
-    return render_template('result.html',results=res)
+    return render_template('result.html',results=score)
 
 ## Variable Rule
 @app.route('/successres/<int:score>')

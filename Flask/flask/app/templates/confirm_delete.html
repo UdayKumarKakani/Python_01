@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card p-4">
+      <h2>Delete Account</h2>
+      <p class="text-warning">This action is permanent. Your account and profile data will be removed.</p>
+      <form method="POST">
+        {{ form.hidden_tag() }}
+        {{ form.submit(class_='btn btn-danger') }}
+        <a href="{{ url_for('main.profile') }}" class="btn btn-secondary ms-2">Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
