@@ -38,3 +38,8 @@ duckduckgo-search
 langchain_experimental
 ddgs
 anthropic
+passlib[bcrypt]
+python-jose[cryptography]
+python-multipart
+httpx
+slowapi
