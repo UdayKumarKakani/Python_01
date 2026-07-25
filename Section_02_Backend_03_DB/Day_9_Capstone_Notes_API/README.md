@@ -40,7 +40,7 @@ A production-style, JWT-authenticated note-taking API that brings together every
 ## Setup
 
 ```bash
-python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt && uvicorn main:app --reload
+uv venv notesapi --python 3.10 && .\my_env\Scripts\Activate.ps1 && uv pip install -r requirements.txt && uvicorn main:app --reload
 ```
 
 Then open <http://127.0.0.1:8000/docs>.
