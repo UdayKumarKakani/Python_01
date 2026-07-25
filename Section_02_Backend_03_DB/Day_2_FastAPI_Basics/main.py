@@ -18,7 +18,7 @@ app = FastAPI(title="Day 2 - FastAPI Basics")
 
 @app.get("/")
 def root():
-    return {"hello": "world"}
+    return {"hello": "Udaykumar"}
 
 
 @app.get("/items/{item_id}")

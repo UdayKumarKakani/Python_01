@@ -32,6 +32,13 @@ class Item(BaseModel):
     price: float = Field(..., gt=0, description="Must be > 0")
     quantity: int = Field(..., ge=0, description="Must be >= 0")
     category: Category
+    
+class Item2(BaseModel):
+    id: str | None = None  # auto-filled by the server
+    name: int = Field(..., gt=0, description="Must be > 0")
+    price: int = Field(..., gt=0, description="Must be > 0")
+    quantity: str = Field(..., min_length=1, description="Must be >= 0")
+    category: Category    
 
 
 @app.get("/")
@@ -41,6 +48,12 @@ def root():
 
 @app.post("/items", response_model=Item)
 def create_item(item: Item):
+    # Pydantic has already validated `item` for us by this point
+    item.id = str(uuid4())
+    return item
+
+@app.post("/items1", response_model=Item)
+def create1_item(item: Item2):
     # Pydantic has already validated `item` for us by this point
     item.id = str(uuid4())
     return item

@@ -1,6 +1,4 @@
 """User registration, login, and current-user endpoints."""
-from __future__ import annotations
-
 from fastapi import APIRouter, Depends, HTTPException, Request, status
 from fastapi.security import OAuth2PasswordRequestForm
 from slowapi import Limiter
