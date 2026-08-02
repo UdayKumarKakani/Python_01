@@ -31,7 +31,7 @@ import httpx
 
 
 OLLAMA_URL = "http://localhost:11434"
-MODEL = "llama3.2:3b"       # change if you pulled a different model
+MODEL = "llama3.1:8b"       # change if you pulled a different model
 
 
 # ------------------------------------------------------------
@@ -119,4 +119,4 @@ if __name__ == "__main__":
     print(chat([system, user1]))
 
     print(f"\n\n--- 2. streaming chat with {MODEL} ---\n")
-    stream([system, {"role": "user", "content": "Write a haiku about async I/O."}])
+    stream([system, {"role": "user", "content": "In 3 lines, explain what a Python decorator is."}])
