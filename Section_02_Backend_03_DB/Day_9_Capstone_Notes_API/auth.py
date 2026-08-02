@@ -15,7 +15,7 @@ from database import get_db
 from models import User
 
 # In a real app, read this from an env var / secret manager.
-SECRET_KEY = "change-me-in-production"
+SECRET_KEY = "changeme"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
@@ -25,7 +25,8 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/v1/users/login")
 
 def hash_password(password: str) -> str:
     """Return the bcrypt hash of a plaintext password."""
-    return pwd_context.hash(password)
+    truncated_password = password[:72]
+    return pwd_context.hash(truncated_password)
 
 
 def verify_password(plain: str, hashed: str) -> bool:

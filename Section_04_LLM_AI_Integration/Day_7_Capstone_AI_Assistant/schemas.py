@@ -20,7 +20,7 @@ class TokenResponse(BaseModel):
 class ChatRequest(BaseModel):
     prompt: str = Field(..., min_length=1, max_length=8000)
     privacy: bool = False
-    force_model: Optional[str] = None  # e.g. "together/meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"
+    force_model: Optional[str] = None  # e.g. "together/openai/gpt-oss-20b"
 
 
 class ChatResponse(BaseModel):

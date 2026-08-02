@@ -4,7 +4,7 @@ import tiktoken
 
 # $/million tokens (input, output). Rough early-2026 numbers.
 PRICING = {
-    ("together", "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"):  (0.18, 0.18),
+    ("together", "openai/gpt-oss-20b"):  (0.18, 0.18),
     ("together", "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"): (0.88, 0.88),
     ("together", "mistralai/Mistral-7B-Instruct-v0.3"):           (0.20, 0.20),
     ("openai", "gpt-4o"):                (2.50, 10.00),

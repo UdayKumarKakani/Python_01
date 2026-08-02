@@ -13,7 +13,7 @@ from typing import Optional
 
 CODE_KEYWORDS = re.compile(r"\b(code|python|sql|refactor|debug|algorithm|regex)\b", re.I)
 
-TOGETHER_DEFAULT = "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"
+TOGETHER_DEFAULT = "openai/gpt-oss-20b"
 TOGETHER_BIG     = "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
 
 

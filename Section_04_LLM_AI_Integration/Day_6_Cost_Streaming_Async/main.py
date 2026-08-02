@@ -35,7 +35,7 @@ aio = AsyncOpenAI(
     api_key=os.getenv("TOGETHER_API_KEY"),
     base_url="https://api.together.xyz/v1",
 )
-MODEL = "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"
+MODEL = "openai/gpt-oss-20b"
 enc = tiktoken.get_encoding("cl100k_base")
 
 

@@ -1,4 +1,11 @@
 Working With Databases/example.db
+
+# Environment files - never commit API keys
+.env
+**/.env
+.env.local
+**/.env.local
+
 LangChain/.env
 LangChain/03+Setting+Up+the+Env+03.ipynb
 LangChain/04 The OpenAI API 01.ipynb

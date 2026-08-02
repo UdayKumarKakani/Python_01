@@ -1,0 +1,2 @@
+# No new deps for this section - it's mostly reading + writing + practicing.
+# We reuse the stacks from Sections 5-9 if a code cell needs to run.

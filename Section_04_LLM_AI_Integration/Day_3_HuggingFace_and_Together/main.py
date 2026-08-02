@@ -68,7 +68,7 @@ def demo_together() -> None:
     from together import Together
     client = Together()
     r = client.chat.completions.create(
-        model="meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo",
+        model="openai/gpt-oss-20b",
         messages=[{"role": "user", "content": "Say hello in 3 languages."}],
     )
     print(" ", r.choices[0].message.content, "\n")

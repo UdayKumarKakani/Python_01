@@ -27,7 +27,7 @@ if not os.getenv("TOGETHER_API_KEY"):
 from together import Together
 
 client = Together()
-MODEL = "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"
+MODEL = "openai/gpt-oss-20b"
 
 
 def ask(prompt: str, system: str | None = None,

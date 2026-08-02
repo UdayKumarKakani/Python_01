@@ -27,7 +27,7 @@ if not os.getenv("TOGETHER_API_KEY"):
     raise SystemExit("Missing TOGETHER_API_KEY. Add it to .env and re-run.")
 
 tg = Together()
-TG_MODEL = "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"
+TG_MODEL = "openai/gpt-oss-20b"
 
 
 # ---------------------------------------------------------------------------

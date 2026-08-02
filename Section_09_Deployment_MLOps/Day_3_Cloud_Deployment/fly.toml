@@ -1,0 +1,17 @@
+app = "my-rag-app"
+primary_region = "iad"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  PORT = "8000"
+
+[http_service]
+  internal_port = 8000
+  force_https = true
+  auto_stop_machines = true
+  min_machines_running = 0
+
+[[vm]]
+  memory = "512mb"

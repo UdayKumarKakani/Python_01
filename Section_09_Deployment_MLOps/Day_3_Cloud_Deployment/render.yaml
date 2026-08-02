@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: my-rag-app
+    env: docker
+    plan: free
+    envVars:
+      - key: TOGETHER_API_KEY
+        sync: false
+    healthCheckPath: /healthz

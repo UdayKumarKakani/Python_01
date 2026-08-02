@@ -170,7 +170,7 @@ async def extract(req: ExtractRequest, username: str = Depends(current_user)):
         api_key=os.getenv("TOGETHER_API_KEY"),
         base_url="https://api.together.xyz/v1",
     )
-    model = "meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo"
+    model = "openai/gpt-oss-20b"
 
     prompt = (
         "Extract as JSON with keys name (string), age (int), email (string). "

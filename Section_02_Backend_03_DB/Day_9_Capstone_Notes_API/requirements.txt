@@ -8,3 +8,4 @@ slowapi==0.1.9
 sqlalchemy==2.0.35
 httpx==0.27.2
 pydantic[email]
+bcrypt==4.3.0
