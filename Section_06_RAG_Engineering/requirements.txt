@@ -14,3 +14,14 @@ python-dotenv>=1.0.0
 pydantic>=2.8.0
 tiktoken>=0.7.0
 numpy>=1.26.0
+
+# Day 7 (bonus) — LangChain edition
+langchain>=0.3
+langchain-core>=0.3
+langchain-community>=0.3
+langchain-chroma>=0.2
+langchain-together>=0.2
+langchain-huggingface>=0.2
+langchain-text-splitters>=0.3
+docx2txt>=0.8
+beautifulsoup4>=4.12

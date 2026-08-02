@@ -1,6 +1,6 @@
 # Section 06 — RAG Engineering
 
-A 6-day, fresher-friendly walkthrough of **Retrieval-Augmented Generation** (RAG) — the single most in-demand AI-engineering skill of 2026. Every day fits in roughly **1 hour 15 minutes** of teaching.
+A 6-day (+1 bonus) fresher-friendly walkthrough of **Retrieval-Augmented Generation** (RAG) — the single most in-demand AI-engineering skill of 2026. Every day fits in roughly **1 hour 15 minutes** of teaching.
 
 RAG = **give the LLM the right documents, then ask it your question.** It's how ChatGPT plugins, enterprise search, "chat with your PDF", and every AI-powered support bot work.
 
@@ -16,6 +16,7 @@ This section builds directly on Section 5 — we already have chunking, embeddin
 | 4 | Prompt design & context window management | `Day_4_Prompt_And_Context/` |
 | 5 | Hallucinations, prompt injection & evaluation | `Day_5_Hallucinations_Guardrails_Eval/` |
 | 6 | Capstone — Enterprise RAG Chatbot with streaming | `Day_6_Capstone_RAG_Chatbot/` |
+| 7 (bonus) | LangChain edition — the same capstone with LangChain + LCEL | `Day_7_LangChain_Bonus_Capstone/` |
 
 ## How each day is organized
 
