@@ -1,6 +1,6 @@
 # Section 09 — Deployment, MLOps & LLMOps
 
-A 6-day, fresher-friendly walkthrough of **shipping AI systems to production**. Every day fits in roughly **1 hour 15 minutes** of teaching.
+A 5-day, fresher-friendly walkthrough of **shipping AI systems to production**. Every day fits in roughly **1 hour 15 minutes** of teaching.
 
 Everything you've built so far runs on your laptop. This section teaches you to put it on the internet with **Docker + CI/CD + a cheap cloud host + observability**.
 
@@ -13,9 +13,8 @@ We deliberately favor **cheap, fast, fresher-friendly** platforms (Render, Railw
 | 1 | Docker for AI apps | `Day_1_Docker_For_AI/` |
 | 2 | CI/CD with GitHub Actions | `Day_2_CI_CD_GitHub_Actions/` |
 | 3 | Cloud deployment (Render / Railway / Fly / HF Spaces) | `Day_3_Cloud_Deployment/` |
-| 4 | LLM observability with Langfuse | `Day_4_Observability_Langfuse/` |
-| 5 | Cost tracking + A/B testing | `Day_5_Cost_AB_Testing/` |
-| 6 | Capstone — deploy your Section 6 RAG chatbot end-to-end | `Day_6_Capstone_Deploy_RAG/` |
+| 4 | Observability + A/B testing (Langfuse) | `Day_4_Observability_Langfuse/` |
+| 5 | Capstone — deploy your Section 6 RAG chatbot end-to-end | `Day_5_Capstone_Deploy_RAG/` |
 
 ## How each day is organized
 
@@ -33,10 +32,10 @@ pip install -r requirements.txt
 ```
 
 You'll also need:
-- **Docker Desktop** (Days 1, 2, 6) — https://docker.com/products/docker-desktop
-- **A GitHub account** (Days 2, 3, 6)
-- **A free account** on one of Render / Railway / Fly.io (Days 3, 6)
-- **A free Langfuse account** (Days 4, 5) — https://langfuse.com
+- **Docker Desktop** (Days 1, 2, 5) — https://docker.com/products/docker-desktop
+- **A GitHub account** (Days 2, 3, 5)
+- **A free account** on one of Render / Railway / Fly.io (Days 3, 5)
+- **A free Langfuse account** (Day 4) — https://langfuse.com
 
 ```env
 TOGETHER_API_KEY=...
@@ -54,7 +53,6 @@ LANGFUSE_HOST=https://cloud.langfuse.com
 - **Langfuse** — LLM tracing + observability (open-source, free tier)
 - **FastAPI** — from Sections 2–7
 - **httpx** — load-test helper
-- **rich** — pretty tables for cost reports
 
 ## Prerequisites
 
@@ -62,11 +60,10 @@ Sections 1–7 complete. Ideally Section 8 too (though this section doesn't requ
 
 ## What you'll build
 
-By Day 6 you'll take the **Section 6 RAG Chatbot** and:
+By Day 5 you'll take the **Section 6 RAG Chatbot** and:
 - Containerize it with Docker
 - Set up a GitHub Actions pipeline that tests + builds + pushes on every merge
 - Deploy to Render (or Railway / Fly) on a free tier
-- Wire in Langfuse for end-to-end tracing of every RAG call
-- Add a `/metrics` endpoint with token + cost totals
+- Wire in Langfuse for end-to-end tracing + A/B testing of every RAG call
 - Load-test it to know its p50/p95 latency
 - Set an SLO and a Grafana-style dashboard URL you can share

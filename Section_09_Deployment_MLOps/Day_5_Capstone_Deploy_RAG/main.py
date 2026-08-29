@@ -1,5 +1,5 @@
 """
-Day 6 - Load-test helper for your deployed RAG API
+Day 5 - Load-test helper for your deployed RAG API
 ---------------------------------------------------
 Usage:
     python main.py https://your-app.onrender.com/ask
