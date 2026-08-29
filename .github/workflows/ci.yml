@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Section_09_Deployment_MLOps/Day_2_CI_CD_GitHub_Actions
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - run: pip install pytest
+      - run: pytest -q
+
+  build-and-push:
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - id: meta
+        run: echo "repo=${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: Section_09_Deployment_MLOps/Day_1_Docker_For_AI
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: |
+            ghcr.io/${{ steps.meta.outputs.repo }}:latest
+            ghcr.io/${{ steps.meta.outputs.repo }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
