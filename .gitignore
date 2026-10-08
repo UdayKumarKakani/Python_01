@@ -125,3 +125,20 @@ LangChain/vector_db_module_files/4.10+Pinecone+Semantic+Search+Course+Descriptio
 LangChain/vector_db_module_files/course_descriptions.csv
 LangChain/vector_db_module_files/course_section_descriptions.csv
 LangChain/vector_db_module_files/Pinecone+Semantic+Search+Course+Section+Weighted.ipynb
+
+# Databases (local scratch state)
+*.db
+*.sqlite
+*.sqlite3
+**/research_db/
+**/approvals.db
+
+# Dataset / JSONL artifacts
+*.jsonl
+
+# Local LLM artifacts (model weights, tokenizers, llama.cpp checkout)
+**/llama.cpp/
+**/triage-merged/
+**/*.gguf
+**/*.safetensors
+**/*.bin
