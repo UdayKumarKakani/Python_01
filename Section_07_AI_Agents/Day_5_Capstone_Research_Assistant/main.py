@@ -37,7 +37,7 @@ assert os.getenv("TOGETHER_API_KEY"), "Set TOGETHER_API_KEY in .env"
 # Setup
 # ------------------------------------------------------------
 llm = Together()
-MODEL = "openai/gpt-oss-20b"
+MODEL = "nvidia/NVIDIA-Nemotron-3.5-Super-VL"
 enc = tiktoken.encoding_for_model("gpt-4o-mini")
 embed = SentenceTransformer("all-MiniLM-L6-v2")
 memory = chromadb.PersistentClient(path="./research_db").get_or_create_collection("reports")
@@ -210,13 +210,7 @@ def start_research(body: ResearchBody, bg: BackgroundTasks):
     return {"job_id": job_id, "status": "running"}
 
 
-@app.get("/research/{job_id}")
-def job_status(job_id: str):
-    if job_id not in JOBS:
-        raise HTTPException(404, "unknown job")
-    return JOBS[job_id]
-
-
+# Declared before /research/{job_id} so "memory" isn't captured as a job id.
 @app.get("/research/memory")
 def memory_search(q: str, top_k: int = 3):
     r = memory.query(query_embeddings=embed.encode([q]).tolist(), n_results=top_k)
@@ -224,3 +218,10 @@ def memory_search(q: str, top_k: int = 3):
         {"question": m["question"], "report": d}
         for d, m in zip(r["documents"][0], r["metadatas"][0])
     ]
+
+
+@app.get("/research/{job_id}")
+def job_status(job_id: str):
+    if job_id not in JOBS:
+        raise HTTPException(404, "unknown job")
+    return JOBS[job_id]

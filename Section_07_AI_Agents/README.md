@@ -35,7 +35,7 @@ pip install -r requirements.txt
 Create a `.env` file in the section root:
 
 ```env
-# Required — Together AI hosts openai/gpt-oss-20b (our default LLM)
+# Required — Together AI hosts nvidia/NVIDIA-Nemotron-3.5-Super-VL (our default LLM)
 TOGETHER_API_KEY=...
 
 # Optional — used in Day 2 for the LangChain-wrapped Together model

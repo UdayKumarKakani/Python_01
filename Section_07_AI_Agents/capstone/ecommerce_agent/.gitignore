@@ -1,0 +1,3 @@
+# SQLite: conversation memory + products/orders store (incl. WAL side files)
+data/
+

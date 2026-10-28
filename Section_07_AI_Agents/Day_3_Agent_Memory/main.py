@@ -74,7 +74,7 @@ class Chatbot:
         )
         self.short.add("user", message)
         r = llm.chat.completions.create(
-            model="openai/gpt-oss-20b",
+            model="nvidia/NVIDIA-Nemotron-3.5-Super-VL",
             messages=self.short.as_prompt(system),
             temperature=0.3,
         )

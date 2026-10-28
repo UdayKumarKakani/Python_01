@@ -10,7 +10,7 @@ FastAPI service that stitches together:
 - Per-user daily budget cap
 
 Run:
-    uvicorn main:app --reload
+    uvicorn main:app --port 8080 --reload
 
 Then open http://127.0.0.1:8000/docs
 """

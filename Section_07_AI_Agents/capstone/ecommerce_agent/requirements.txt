@@ -1,0 +1,31 @@
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.8.0
+pydantic-settings>=2.4.0
+
+langchain-core>=0.3.30,<0.4
+langgraph>=0.2.60
+langchain-together>=0.3.0
+
+# Local embeddings (EMBEDDING_PROVIDER=huggingface, BGE models)
+langchain-huggingface>=0.3.0
+sentence-transformers>=3.0.0
+
+# SQLite: conversation memory (CHECKPOINTER=sqlite) and the products/orders store
+langgraph-checkpoint-sqlite>=2.0.10
+aiosqlite>=0.20,<0.22  # 0.22 removed Connection.is_alive(), which the sqlite saver calls
+
+# Knowledge base ingestion (scripts/ingest_pdf.py)
+pypdf>=4.0.0
+langchain-text-splitters>=0.3.0
+
+# Pinecone's SDK, formerly published as `pinecone-client`.
+# If `pinecone-client` is installed, `pip uninstall pinecone-client` first.
+pinecone>=5.0.0
+
+# Optional: only needed when LLM_PROVIDER is switched
+# langchain-openai>=0.3.0      # LLM_PROVIDER=openai or self_hosted
+# langchain-anthropic>=0.3.0   # LLM_PROVIDER=anthropic
+
+# Only to regenerate the demo PDF (scripts/build_kb_pdf.py)
+# reportlab>=4.0

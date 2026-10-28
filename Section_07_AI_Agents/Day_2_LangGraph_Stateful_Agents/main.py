@@ -23,7 +23,7 @@ from together import Together
 load_dotenv()
 assert os.getenv("TOGETHER_API_KEY"), "Set TOGETHER_API_KEY in .env"
 llm = Together()
-MODEL = "openai/gpt-oss-20b"
+MODEL = "nvidia/NVIDIA-Nemotron-3.5-Super-VL"
 
 
 class AgentState(TypedDict):
