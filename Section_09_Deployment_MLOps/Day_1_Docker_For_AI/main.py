@@ -6,7 +6,7 @@ app = FastAPI(title="Docker demo")
 
 @app.get("/")
 def root():
-    return {"status": "ok", "message": "hello from inside a container"}
+    return {"status": "ok", "message": "hello from inside a container by uday kakani!"}
 
 
 @app.get("/healthz")
